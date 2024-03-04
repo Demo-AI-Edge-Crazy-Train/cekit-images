@@ -11,3 +11,7 @@ packages:
   install:
   - opencv-4.8.1*
   - opencv-java
+
+envs:
+- name: "LD_LIBRARY_PATH"
+  value: "/usr/lib/java"
