@@ -1,0 +1,13 @@
+schema_version: 1
+name: france-ssa.crazy-train.opencv
+version: '1.0'
+description: ^
+  Adds support for OpenCV.
+
+execute:
+- script: configure.sh
+
+packages:
+  install:
+  - opencv-4.8.1*
+  - opencv-java
