@@ -14,7 +14,7 @@ cp -pr * /
 popd
 
 # Set this JDK as the alternative in use
-_arch="$(uname -i)"
+_arch="$(uname -m)"
 alternatives --set java java-1.8.0-openjdk.${_arch}
 alternatives --set javac java-1.8.0-openjdk.${_arch}
 alternatives --set java_sdk_openjdk java-1.8.0-openjdk.${_arch}
