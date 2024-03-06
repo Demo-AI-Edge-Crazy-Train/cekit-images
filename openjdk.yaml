@@ -3,8 +3,8 @@
 schema_version: 1
 
 from: "quay.io/fedora/fedora:39"
-name: &name "demo-ai-edge-crazy-train/openjdk-opencv"
-version: &version "17-4.8.1"
+name: &name "demo-ai-edge-crazy-train/openjdk"
+version: &version "17"
 description: "Image for Red Hat OpenShift providing OpenJDK 17 runtime"
 
 labels:
@@ -52,7 +52,7 @@ modules:
     version: "17"
   - name: jboss.container.util.tzdata
   - name: jboss.container.java.jre.run
-  - name: france-ssa.crazy-train.opencv
+#  - name: france-ssa.crazy-train.opencv
 
 help:
   add: true

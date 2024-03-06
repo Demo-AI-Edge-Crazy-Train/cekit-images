@@ -9,8 +9,7 @@ execute:
 
 packages:
   install:
-  - opencv-4.8.1*
-  - opencv-java
+  - opencv-java-4.8.1*
 
 envs:
 - name: "LD_LIBRARY_PATH"
