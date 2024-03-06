@@ -14,6 +14,7 @@ These sources are prepared and tested for Cekit 4.1.1.
 
 [source,shell]
 ----
+podman rmi -a
 podman manifest create openjdk-opencv
 
 echo "Building for AMD64..."
@@ -24,9 +25,9 @@ podman tag localhost/demo-ai-edge-crazy-train/openjdk-opencv:17-4.8.1 localhost/
 podman manifest add openjdk-opencv containers-storage:localhost/demo-ai-edge-crazy-train/openjdk-opencv:x86_64
 
 echo "Building for ARM64..."
-podman untag localhost/demo-ai-edge-crazy-train/openjdk-opencv:x86_64
+podman untag localhost/demo-ai-edge-crazy-train/openjdk-opencv:arm64
 podman untag quay.io/fedora/fedora:39
-cekit --descriptor openjdk-opencv.yaml build podman --platform linux/arm84/v8
+cekit --descriptor openjdk-opencv.yaml build podman --platform linux/arm64/v8
 podman tag localhost/demo-ai-edge-crazy-train/openjdk-opencv:17-4.8.1 localhost/demo-ai-edge-crazy-train/openjdk-opencv:arm64
 podman manifest add openjdk-opencv containers-storage:localhost/demo-ai-edge-crazy-train/openjdk-opencv:arm64
 
