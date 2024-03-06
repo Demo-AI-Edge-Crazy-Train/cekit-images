@@ -25,8 +25,8 @@ podman tag localhost/demo-ai-edge-crazy-train/openjdk-opencv:17-4.8.1 localhost/
 podman manifest add openjdk-opencv containers-storage:localhost/demo-ai-edge-crazy-train/openjdk-opencv:x86_64
 
 echo "Building for ARM64..."
-podman untag localhost/demo-ai-edge-crazy-train/openjdk-opencv:arm64
 podman untag quay.io/fedora/fedora:39
+podman untag localhost/demo-ai-edge-crazy-train/openjdk-opencv:arm64
 cekit --descriptor openjdk-opencv.yaml build podman --platform linux/arm64/v8
 podman tag localhost/demo-ai-edge-crazy-train/openjdk-opencv:17-4.8.1 localhost/demo-ai-edge-crazy-train/openjdk-opencv:arm64
 podman manifest add openjdk-opencv containers-storage:localhost/demo-ai-edge-crazy-train/openjdk-opencv:arm64
