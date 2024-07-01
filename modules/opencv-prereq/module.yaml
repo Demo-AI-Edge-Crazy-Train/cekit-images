@@ -1,0 +1,13 @@
+schema_version: 1
+name: france-ssa.crazy-train.opencv-prereq
+version: '1.0'
+description: ^
+  Adds pre-requisites for OpenCV
+
+packages:
+  install:
+  - createrepo_c
+
+execute:
+- script: configure.sh
+

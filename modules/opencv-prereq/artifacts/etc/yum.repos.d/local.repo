@@ -1,0 +1,5 @@
+[custom]  
+name = Custom RPMS  
+baseurl = file:///usr/local/src/opencv/$basearch/
+enabled = 1  
+gpgcheck = 0

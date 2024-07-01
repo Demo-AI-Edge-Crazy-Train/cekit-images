@@ -14,24 +14,26 @@ These sources are prepared and tested for Cekit 4.1.1.
 
 [source,shell]
 ----
+podman login quay.io
+skopeo copy -a docker://quay.io/fedora/fedora:39 docker://quay.io/demo-ai-edge-crazy-train/fedora:39
+
 podman rmi -a
 podman manifest create openjdk-opencv
 
 echo "Building for AMD64..."
-podman untag quay.io/fedora/fedora:39
+podman untag quay.io/demo-ai-edge-crazy-train/fedora:39
 podman untag localhost/demo-ai-edge-crazy-train/openjdk-opencv:x86_64
 cekit --descriptor openjdk-opencv.yaml build podman
 podman tag localhost/demo-ai-edge-crazy-train/openjdk-opencv:17-4.8.1 localhost/demo-ai-edge-crazy-train/openjdk-opencv:x86_64
 podman manifest add openjdk-opencv containers-storage:localhost/demo-ai-edge-crazy-train/openjdk-opencv:x86_64
 
 echo "Building for ARM64..."
-podman untag quay.io/fedora/fedora:39
+podman untag quay.io/demo-ai-edge-crazy-train/fedora:39
 podman untag localhost/demo-ai-edge-crazy-train/openjdk-opencv:arm64
 cekit --descriptor openjdk-opencv.yaml build podman --platform linux/arm64/v8
 podman tag localhost/demo-ai-edge-crazy-train/openjdk-opencv:17-4.8.1 localhost/demo-ai-edge-crazy-train/openjdk-opencv:arm64
 podman manifest add openjdk-opencv containers-storage:localhost/demo-ai-edge-crazy-train/openjdk-opencv:arm64
 
-podman login quay.io
 podman manifest push --all openjdk-opencv docker://quay.io/demo-ai-edge-crazy-train/openjdk-opencv:17-4.8.1
 ----
 
